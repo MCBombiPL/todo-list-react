@@ -1,0 +1,48 @@
+.form {
+    background-color: white;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    grid-gap: 10px;
+}
+
+@media (max-width: 767px) {
+    .form {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 100%);
+    }
+}
+
+.form__input {
+    font-family: Montserrat, sans-serif;
+    align-self: stretch;
+    flex-basis: 30px;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.form__button {
+    background-color: teal;
+    color: white;
+    padding: 10px;
+    border: none;
+    font-family: Montserrat, sans-serif;
+    transition: 0.3s;
+}
+
+.form__button:hover {
+    background-color: rgb(2, 153, 153);
+    transform: scale(1.1);
+}
+
+.form__button:active {
+    background-color: rgb(1, 164, 164);
+}
+
+
+@media (max-width: 767px) {
+    .form__button {
+        align-self: stretch;
+    }
+}
