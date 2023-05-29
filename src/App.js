@@ -1,31 +1,38 @@
-import Form from './Form';
+import { useState } from "react";
+import Form from "./Form";
 import Tasks from "./Tasks";
 import Buttons from "./Buttons";
 import Section from "./Section";
 import Header from "./Header";
-import Container from './Container';
+import Container from "./Container";
+import { useCallback } from "react";
 
 const tasks = [
-    {id: 1, content: "przejść na Reacta", done: false},
-    {id: 2, content: "zjeść kolację", done: true},
-  ];
-const hideDone = false;
+  { id: 1, content: "przejść na Reacta", done: false },
+  { id: 2, content: "zjeść kolację", done: true },
+];
 
 function App() {
+  const [hideDone, setHideDone] = useState(false);
+
+  const toggleHideDone = () => {
+    setHideDone((hideDone) => !hideDone);
+  };
+
   return (
     <Container>
-    <Header title="Lista zadań" />
+      <Header title="Lista zadań" />
 
-    <Section
-    title="Dodaj nowe zadanie" 
-    container={<Form />} 
-    />
-    <Section
-    title="Lista zadań"
-    container={<Tasks tasks={tasks} hideDone={hideDone}/>}
-    extraHeaderContent={<Buttons tasks={tasks} hideDone={hideDone} />}
-    />
-</Container>
+      <Section title="Dodaj nowe zadanie" container={<Form />} />
+      <Section
+        title="Lista zadań"
+        container={<Tasks tasks={tasks} hideDone={hideDone} />}
+        extraHeaderContent={<Buttons
+          tasks={tasks}
+          hideDone={hideDone}
+          toggleHideDone={toggleHideDone} />}
+      />
+    </Container>
   );
 }
 
