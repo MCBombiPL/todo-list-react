@@ -20,7 +20,6 @@ function App() {
     title="Dodaj nowe zadanie" 
     container={<Form />} 
     />
-
     <Section
     title="Lista zadań"
     container={<Tasks tasks={tasks} hideDone={hideDone}/>}
